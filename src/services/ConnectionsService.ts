@@ -64,6 +64,16 @@ class ConnectionsService {
       })
       .execute();
   }
+
+  async deleteBySocketId(socket_id: string) {
+    await this.connectionsRepository
+      .createQueryBuilder()
+      .delete()
+      .where("socket_id = :socket_id", {
+        socket_id,
+      })
+      .execute();
+  }
 }
 
 export { ConnectionsService };
